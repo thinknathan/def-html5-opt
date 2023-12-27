@@ -1,0 +1,33 @@
+{
+	"$schema": "https://json.schemastore.org/package.json",
+	"name": "def-sw",
+	"version": "1.0.0",
+	"description": "Generates a service worker for web games exported from Defold",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/thinknathan/def-sw.git"
+	},
+	"author": "Nathan Bolton (https://thinknathan.ca/)",
+	"license": "CC0-1.0",
+	"scripts": {
+		"build": "npm run build-load-sw && npm run build-add-tag && npm run build-sw",
+		"build-load-sw": "esbuild ./src/load-sw.ts --bundle --minify --outdir=copy-game-here",
+		"build-add-tag": "node ./tools/add-script-tag.cjs",
+		"build-sw": "npx workbox-cli generateSW workbox-config.js",
+		"minify": "npm run minify-dmloader && npm run minify-index",
+		"minify-dmloader": "terser ./copy-game-here/dmloader.js --compress --mangle --output ./copy-game-here/dmloader.js",
+		"minify-index": "html-minifier-terser ./copy-game-here/index.html --collapse-whitespace --remove-comments --minify-js true --minify-css true --output ./copy-game-here/index.html",
+		"prettier": "prettier --write ./**/*.{cjs,ts,mjs,md,d.ts}"
+	},
+	"devDependencies": {
+		"esbuild": "~0.19.10",
+		"html-minifier-terser": "^7.2.0",
+		"prettier": "^3.1.1",
+		"terser": "^5.26.0",
+		"typescript": "~5.3.3",
+		"workbox-cli": "^7.0.0"
+	},
+	"dependencies": {
+		"workbox-window": "^7.0.0"
+	}
+}
