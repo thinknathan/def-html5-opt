@@ -1,5 +1,5 @@
 node_modules
-copy-game-here
+copy-game-here/*
 !copy-game-here/.gitkeep
 
 # Windows image file caches
