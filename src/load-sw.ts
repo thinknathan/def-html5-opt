@@ -1,5 +1,14 @@
 import { Workbox } from 'workbox-window';
 
+let secondsElapsed = 0;
+
+const secondsTimer = setInterval(() => {
+	secondsElapsed++;
+	if (secondsElapsed >= 5) {
+		clearInterval(secondsTimer);
+	}
+}, 1000);
+
 const main = () => {
 	const wb = new Workbox('/service-worker.js');
 
@@ -21,6 +30,16 @@ const main = () => {
 		// Does not run on subsequent updates.
 		if (!event.isUpdate) {
 			console.log('App is ready for offline use.');
+		}
+	});
+
+	/**
+	 * If a new service worker takes over within 5 seconds,
+	 * reload the page to ensure the service worker has control.
+	 */
+	wb.addEventListener('controlling', () => {
+		if (secondsElapsed < 5) {
+			window.location.reload();
 		}
 	});
 
