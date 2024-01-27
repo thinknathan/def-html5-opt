@@ -10,6 +10,7 @@
 	"author": "Nathan Bolton (https://thinknathan.ca/)",
 	"license": "CC0-1.0",
 	"scripts": {
+		"ci": "tsc ./src/load-sw.ts --noEmit",
 		"build": "npm run build-load-sw && npm run build-add-tag && npm run build-sw",
 		"build-load-sw": "esbuild ./src/load-sw.ts --bundle --minify --outdir=copy-game-here",
 		"build-add-tag": "node ./tools/add-script-tag.cjs",
