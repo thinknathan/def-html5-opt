@@ -1,5 +1,7 @@
 # Defold Service Worker Generator
 
+[![CI](https://github.com/thinknathan/def-sw/actions/workflows/ci.yml/badge.svg)](https://github.com/thinknathan/def-sw/actions/workflows/ci.yml)
+
 Generates a service worker for web games exported from [Defold](https://defold.com/).
 
 ## Install
