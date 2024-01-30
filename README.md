@@ -1,3 +1,5 @@
+<img src="_docs/def-sw.png" alt="Tool for Defold: Def-SW">
+
 # Defold Service Worker Generator
 
 [![CI](https://github.com/thinknathan/def-sw/actions/workflows/ci.yml/badge.svg)](https://github.com/thinknathan/def-sw/actions/workflows/ci.yml)

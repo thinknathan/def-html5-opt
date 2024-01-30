@@ -1,2 +1,6 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Exclude files from archive
+.gitattributes export-ignore
+_docs export-ignore
