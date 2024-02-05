@@ -9,6 +9,9 @@
 	},
 	"author": "Nathan Bolton (https://thinknathan.ca/)",
 	"license": "CC0-1.0",
+	"engines": {
+		"node": "^18 || >=20"
+	},
 	"scripts": {
 		"ci": "tsc ./src/load-sw.ts --noEmit && npm run lint:ts && npm run lint:js",
 		"build": "npm run build-load-sw && npm run build-add-tag && npm run build-sw",
