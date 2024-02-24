@@ -1,8 +1,8 @@
-<img src="_docs/def-sw.png" alt="Tool for Defold: Def-SW">
+<img src="_docs/def-sw.png" alt="Tool for Defold: Def HTML5 Opt">
 
 # HTML5 Build Optimizer for Defold
 
-[![CI](https://github.com/thinknathan/def-sw/actions/workflows/ci.yml/badge.svg)](https://github.com/thinknathan/def-sw/actions/workflows/ci.yml)
+[![CI](https://github.com/thinknathan/def-html5-opt/actions/workflows/ci.yml/badge.svg)](https://github.com/thinknathan/def-html5-opt/actions/workflows/ci.yml)
 
 Adds loading and caching optimizations to HTML5 web games exported from [Defold](https://defold.com/).
 
@@ -15,7 +15,7 @@ Adds loading and caching optimizations to HTML5 web games exported from [Defold]
 1. Install [Nodejs](https://nodejs.org/en) or equivalent
 
 2. Clone this project (or fork it in Github)
-   `git clone https://github.com/thinknathan/def-sw`
+   `git clone https://github.com/thinknathan/def-html5-opt`
 
 3. Install dependencies
    `npm i`

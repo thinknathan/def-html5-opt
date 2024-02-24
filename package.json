@@ -1,11 +1,11 @@
 {
 	"$schema": "https://json.schemastore.org/package.json",
-	"name": "def-sw",
+	"name": "def-html5-opt",
 	"version": "1.1.0",
 	"description": "Generates a service worker for web games exported from Defold",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/thinknathan/def-sw.git"
+		"url": "https://github.com/thinknathan/def-html5-opt.git"
 	},
 	"author": "Nathan Bolton (https://thinknathan.ca/)",
 	"license": "CC0-1.0",
