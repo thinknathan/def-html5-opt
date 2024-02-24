@@ -17,14 +17,14 @@ module.exports = {
 	],
 	globDirectory: './copy-game-here/',
 	globPatterns: [
-		'**/*', //.{js,html,wasm,json,arcd0,arci0,dmanifest0,projectc0,der0}
+		'**/*', //.{js,html,wasm,json,arcd,arci,dmanifest,projectc,der}
 	],
 	globFollow: true,
 	globStrict: true,
-	maximumFileSizeToCacheInBytes: 10490000,
+	maximumFileSizeToCacheInBytes: 50000000,
 	mode: 'production',
 	// https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/skipWaiting
-	skipWaiting: false,
+	skipWaiting: true,
 	sourcemap: false,
 	swDest: './copy-game-here/service-worker.js',
 };
