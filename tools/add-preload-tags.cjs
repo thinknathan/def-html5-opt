@@ -27,7 +27,7 @@ const traverseDirectory = (directory, blockList) => {
 			if (!blockList.some((entry) => filePath.includes(entry))) {
 				if (filePath.includes('dmloader.js')) {
 					preloadTags.push(
-						`  <link rel="preload" href="${convertToRelativePath(filePath, 'copy-game-here')}" as="script" onload="document.querySelectorAll('link[data-rel]').forEach((link) => { link.setAttribute('rel', link.getAttribute('data-rel')) })" />\n`,
+						`  <link rel="preload" href="${convertToRelativePath(filePath, 'copy-game-here')}" as="script" onload="document.querySelectorAll('link[data-rel]').forEach(link => link.setAttribute('rel', link.getAttribute('data-rel')))" />\n`,
 					);
 				} else {
 					preloadTags.push(
