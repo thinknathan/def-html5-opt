@@ -2,7 +2,8 @@
 
 # HTML5 Build Optimizer for Defold
 
-[![CI](https://github.com/thinknathan/def-html5-opt/actions/workflows/ci.yml/badge.svg)](https://github.com/thinknathan/def-html5-opt/actions/workflows/ci.yml)
+[![CI](https://github.com/thinknathan/def-html5-opt/actions/workflows/ci.yml/badge.svg)](https://github.com/thinknathan/def-html5-opt/actions/workflows/ci.yml) 
+![GitHub License](https://img.shields.io/github/license/thinknathan/def-html5-opt)
 
 Adds loading and caching optimizations to HTML5 web games exported from [Defold](https://defold.com/).
 
