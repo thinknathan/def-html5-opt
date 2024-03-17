@@ -29,8 +29,8 @@
 		"sw": "npm run build-load-sw && npm run build-add-tag && npm run build-sw"
 	},
 	"devDependencies": {
-		"@typescript-eslint/eslint-plugin": "^6.16.0",
-		"@typescript-eslint/parser": "^6.16.0",
+		"@typescript-eslint/eslint-plugin": "^7.2.0",
+		"@typescript-eslint/parser": "^7.2.0",
 		"esbuild": "~0.20.0",
 		"eslint": "^8.56.0",
 		"eslint-config-prettier": "^9.1.0",
@@ -38,7 +38,7 @@
 		"html-minifier-terser": "^7.2.0",
 		"prettier": "^3.1.1",
 		"terser": "^5.26.0",
-		"typescript": "~5.3.3",
+		"typescript": "~5.4.2",
 		"workbox-cli": "^7.0.0"
 	},
 	"dependencies": {
