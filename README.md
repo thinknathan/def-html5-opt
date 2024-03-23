@@ -2,14 +2,15 @@
 
 # HTML5 Build Optimizer for Defold
 
-[![CI](https://github.com/thinknathan/def-html5-opt/actions/workflows/ci.yml/badge.svg)](https://github.com/thinknathan/def-html5-opt/actions/workflows/ci.yml) 
+[![CI](https://github.com/thinknathan/def-html5-opt/actions/workflows/ci.yml/badge.svg)](https://github.com/thinknathan/def-html5-opt/actions/workflows/ci.yml)
 ![GitHub License](https://img.shields.io/github/license/thinknathan/def-html5-opt)
 
 Adds loading and caching optimizations to HTML5 web games exported from [Defold](https://defold.com/).
 
 1. Minifies HTML and JS to reduce file size and speed loading
 2. Adds preload meta tags to speed up first boot
-3. Generates a service worker to persistently cache assets
+3. Swaps the old loading bar animation for a more efficient GPU-accelerated animation
+4. Generates a service worker to persistently cache assets
 
 ## Install
 
@@ -27,12 +28,17 @@ Adds loading and caching optimizations to HTML5 web games exported from [Defold]
 
 1. Build your HTML5 export from Defold
 2. Copy your game files into the `copy-game-here` folder (don't include the build report: exclude `report.html` and similar)
-3. Run `yarn preload` or `npm run preload` to add preload meta tags
-4. Run `yarn minify` or `npm run minify` to reduce the size of `index.html` and `dmloader.js`
-5. Run `yarn sw` or `npm run sw` to generate the service worker
 
-- Done! We've completed the modifications to your game in the `copy-game-here` folder
-- Upload all the files inside `copy-game-here` to distribute your game
+You can skip any of the following steps you don't want to run. This is the recommended order:
+
+3. Run `yarn preload` or `npm run preload` to add preload meta tags
+4. Run `yarn opt-progress` or `npm run opt-progress` to optimize the loading bar animation
+5. Run `yarn minify` or `npm run minify` to reduce the size of `index.html` and `dmloader.js`
+6. Run `yarn sw` or `npm run sw` to generate the service worker
+
+Done! We've completed the modifications to your game in the `copy-game-here` folder.
+
+Upload all the files inside `copy-game-here` to distribute your game.
 
 ## Other potential optimizations
 
