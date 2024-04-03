@@ -1,3 +1,5 @@
+'use strict';
+
 const fs = require('fs');
 const path = require('path');
 const preloadTags = [];
@@ -26,10 +28,17 @@ const traverseDirectory = (directory, blockList) => {
 		} else {
 			if (!blockList.some((entry) => filePath.includes(entry))) {
 				if (filePath.includes('dmloader.js')) {
+					// `dmloader.js` is highest priority
 					preloadTags.push(
 						`  <link rel="preload" href="${convertToRelativePath(filePath, 'copy-game-here')}" as="script" onload="document.querySelectorAll('link[data-rel]').forEach(link => link.setAttribute('rel', link.getAttribute('data-rel')))" />\n`,
 					);
+				} else if (filePath.includes('archive_files.json')) {
+					// `archive_files.json` is also highest priority
+					preloadTags.push(
+						`  <link rel="preload" href="${convertToRelativePath(filePath, 'copy-game-here')}" as="fetch" crossorigin="*" />\n`,
+					);
 				} else {
+					// All other files won't start downloading until `dmloader.js` is finished
 					preloadTags.push(
 						`  <link data-rel="preload" href="${convertToRelativePath(filePath, 'copy-game-here')}" as="fetch" crossorigin="*" />\n`,
 					);
@@ -82,8 +91,15 @@ const main = () => {
 		'service-worker.js',
 		'load-sw.js',
 		'workbox-',
-		'_asmjs.js',
 	];
+
+	// If there is a `wasm` file in the directory, don't preload `_asmjs.js`
+	const wasmFiles = fs
+		.readdirSync(copyGameDirectory)
+		.filter((file) => file.endsWith('.wasm'));
+	if (wasmFiles.length > 0) {
+		blockList.push('_asmjs.js');
+	}
 
 	traverseDirectory(copyGameDirectory, blockList);
 

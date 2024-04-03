@@ -1,7 +1,7 @@
 {
 	"$schema": "https://json.schemastore.org/package.json",
 	"name": "def-html5-opt",
-	"version": "1.2.0",
+	"version": "2.0.0",
 	"description": "Generates a service worker for web games exported from Defold",
 	"repository": {
 		"type": "git",
@@ -15,16 +15,15 @@
 	"scripts": {
 		"add-sw-tag": "node ./tools/add-sw-tag.cjs",
 		"ci": "tsc ./src/load-sw.ts --noEmit && npm run lint:ts && npm run lint:js",
-		"build": "npm run preload && npm run opt-progress && npm run minify && npm run sw",
+		"build": "npm run preload && npm run minify && npm run sw",
 		"build-load-sw": "esbuild ./src/load-sw.ts --bundle --minify --outdir=copy-game-here",
 		"build-sw": "npx workbox-cli generateSW workbox-config.js",
 		"lint": "npm run lint:ts && npm run lint:js",
 		"lint:ts": "eslint -c ./src/.eslintrc ./src",
 		"lint:js": "eslint -c ./tools/.eslintrc ./tools/*.cjs",
-		"minify": "npm run minify-dmloader && npm run minify-index",
-		"minify-dmloader": "terser ./copy-game-here/dmloader.js --compress --mangle --output ./copy-game-here/dmloader.js",
+		"minify": "npm run minify-js && npm run minify-index",
+		"minify-js": "node ./tools/minify-js.cjs",
 		"minify-index": "html-minifier-terser ./copy-game-here/index.html --collapse-whitespace --remove-comments --remove-script-type-attributes --remove-style-link-type-attributes --minify-js true --minify-css true --output ./copy-game-here/index.html",
-		"opt-progress": "node ./tools/add-optimize-transition.cjs",
 		"preload": "node ./tools/add-preload-tags.cjs",
 		"prettier": "prettier --write ./**/*.{cjs,ts,mjs,md,d.ts}",
 		"sw": "npm run build-load-sw && npm run add-sw-tag && npm run build-sw"
