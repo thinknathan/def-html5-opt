@@ -4,5 +4,6 @@
 	"editor.formatOnPaste": true,
 	"editor.tabSize": 2,
 	"editor.detectIndentation": false,
+	"eslint.experimental.useFlatConfig": true,
 	"typescript.tsdk": "node_modules\\typescript\\lib"
 }
