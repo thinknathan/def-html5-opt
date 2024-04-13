@@ -1,3 +1,4 @@
+// @ts-check
 'use strict';
 
 const fs = require('fs');
@@ -20,8 +21,11 @@ const main = async () => {
 	// Loop through each JavaScript file and run minify on them
 	for (const file of jsFiles.filter((file) => file.name.endsWith('.js'))) {
 		const filePath = path.join(copyGameDirectory, file.name);
+		// @ts-expect-error Why is 2020 not a valid ecma value?
 		const minified = await minify(fs.readFileSync(filePath, 'utf8'), options);
-		fs.writeFileSync(filePath, minified.code);
+		if (minified.code) {
+			fs.writeFileSync(filePath, minified.code);
+		}
 	}
 };
 

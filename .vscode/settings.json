@@ -4,8 +4,5 @@
 	"editor.formatOnPaste": true,
 	"editor.tabSize": 2,
 	"editor.detectIndentation": false,
-	"typescript.tsdk": "node_modules\\typescript\\lib",
-	"files.associations": {
-		".eslintrc": "json"
-	}
+	"typescript.tsdk": "node_modules\\typescript\\lib"
 }

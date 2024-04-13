@@ -19,8 +19,8 @@
 		"build-load-sw": "esbuild ./src/load-sw.ts --bundle --minify --outdir=copy-game-here",
 		"build-sw": "npx workbox-cli generateSW workbox-config.js",
 		"lint": "npm run lint:ts && npm run lint:js",
-		"lint:ts": "eslint -c ./src/.eslintrc ./src",
-		"lint:js": "eslint -c ./tools/.eslintrc ./tools/*.cjs",
+		"lint:ts": "eslint ./src",
+		"lint:js": "eslint ./tools/*.cjs",
 		"minify": "npm run minify-js && npm run minify-index",
 		"minify-js": "node ./tools/minify-js.cjs",
 		"minify-index": "html-minifier-terser ./copy-game-here/index.html --collapse-whitespace --remove-comments --remove-script-type-attributes --remove-style-link-type-attributes --minify-js true --minify-css true --output ./copy-game-here/index.html",
@@ -29,15 +29,14 @@
 		"sw": "npm run build-load-sw && npm run add-sw-tag && npm run build-sw"
 	},
 	"devDependencies": {
-		"@typescript-eslint/eslint-plugin": "^7.2.0",
-		"@typescript-eslint/parser": "^7.2.0",
 		"esbuild": "~0.20.0",
 		"eslint": "^8.56.0",
-		"eslint-config-prettier": "^9.1.0",
+		"globals": "*",
 		"html-minifier-terser": "^7.2.0",
 		"prettier": "^3.1.1",
 		"terser": "^5.26.0",
 		"typescript": "~5.4.2",
+		"typescript-eslint": "^7.6.0",
 		"workbox-cli": "^7.0.0"
 	},
 	"dependencies": {
