@@ -1,9 +1,8 @@
 // @ts-check
-'use strict';
 
-const fs = require('fs');
-const path = require('path');
-const { minify } = require('terser');
+import * as fs from 'fs';
+import * as path from 'path';
+import { minify } from 'terser';
 
 const main = async () => {
 	const options = {

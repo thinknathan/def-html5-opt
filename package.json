@@ -3,6 +3,7 @@
 	"name": "def-html5-opt",
 	"version": "2.0.0",
 	"description": "Generates a service worker for web games exported from Defold",
+	"type": "module",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/thinknathan/def-html5-opt.git"
@@ -10,21 +11,21 @@
 	"author": "Nathan Bolton (https://thinknathan.ca/)",
 	"license": "CC0-1.0",
 	"engines": {
-		"node": "^18 || >=20"
+		"node": "^18.18.0 || ^20.9.0 || >=21.1.0"
 	},
 	"scripts": {
-		"add-sw-tag": "node ./tools/add-sw-tag.cjs",
+		"add-sw-tag": "node ./tools/add-sw-tag.mjs",
 		"ci": "tsc ./src/load-sw.ts --noEmit && npm run lint:ts && npm run lint:js",
 		"build": "npm run preload && npm run minify && npm run sw",
 		"build-load-sw": "esbuild ./src/load-sw.ts --bundle --minify --outdir=copy-game-here",
 		"build-sw": "npx workbox-cli generateSW workbox-config.js",
 		"lint": "npm run lint:ts && npm run lint:js",
 		"lint:ts": "eslint ./src",
-		"lint:js": "eslint ./tools/*.cjs",
+		"lint:js": "eslint ./tools/*.mjs",
 		"minify": "npm run minify-js && npm run minify-index",
-		"minify-js": "node ./tools/minify-js.cjs",
+		"minify-js": "node ./tools/minify-js.mjs",
 		"minify-index": "html-minifier-terser ./copy-game-here/index.html --collapse-whitespace --remove-comments --remove-script-type-attributes --remove-style-link-type-attributes --minify-js true --minify-css true --output ./copy-game-here/index.html",
-		"preload": "node ./tools/add-preload-tags.cjs",
+		"preload": "node ./tools/add-preload-tags.mjs",
 		"prettier": "prettier --write ./**/*.{cjs,ts,mjs,md,d.ts}",
 		"sw": "npm run build-load-sw && npm run add-sw-tag && npm run build-sw"
 	},
