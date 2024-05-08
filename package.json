@@ -30,10 +30,13 @@
 		"sw": "npm run build-load-sw && npm run add-sw-tag && npm run build-sw"
 	},
 	"devDependencies": {
+		"@commitlint/cli": "^19.3.0",
+		"@commitlint/config-conventional": "^19.2.2",
 		"esbuild": "~0.20.0",
 		"eslint": "^8.56.0",
 		"globals": "*",
 		"html-minifier-terser": "^7.2.0",
+		"husky": "^9.0.11",
 		"prettier": "^3.1.1",
 		"terser": "^5.26.0",
 		"typescript": "~5.4.2",
